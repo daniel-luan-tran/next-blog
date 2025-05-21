@@ -72,13 +72,13 @@ export default async function RootLayout({
             >
               <AntApp>
                 <main>
-                  <Header>
-                    <h1>Hello world!!!</h1>
+                  <Header style={{ backgroundColor: "var(--header-background)" }}>
+                    <h1 style={{ color: "var(--header-foreground)" }}>Hello world!!!</h1>
                   </Header>
                   {children}
-                  <Footer className="!bg-[#001529]">
+                  <Footer style={{ backgroundColor: "var(--footer-background)" }}>
                     <div className="text-center">
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm" style={{ color: "var(--footer-foreground)" }}>
                         © 2025 Next Blog. All rights reserved.
                       </p>
                     </div>
