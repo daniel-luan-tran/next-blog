@@ -17,7 +17,7 @@ function classNames(...classes: (string | undefined)[]): string {
 
 export default function Header() {
   return (
-    <Disclosure as="nav" style={{ backgroundColor: "var(--header-background)" }} className="navigation-header">
+    <Disclosure as="nav" className="navigation-header">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">

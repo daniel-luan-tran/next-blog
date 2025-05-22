@@ -76,13 +76,10 @@ export default async function RootLayout({
                   {/* <Header /> */}
                   <Header />
                   {children}
-                  <Footer
-                    style={{ backgroundColor: "var(--footer-background)" }}
-                  >
+                  <Footer>
                     <div className="text-center">
                       <p
                         className="text-sm"
-                        style={{ color: "var(--footer-foreground)" }}
                       >
                         © 2025 Next Blog. All rights reserved.
                       </p>
