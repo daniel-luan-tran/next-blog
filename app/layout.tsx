@@ -6,8 +6,9 @@ import { Inter } from "next/font/google";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLangCookie } from "@/utils/cookiesServer";
-import { Footer, Header } from "antd/es/layout/layout";
-import "./globals.css"
+import { Footer } from "antd/es/layout/layout";
+import "./globals.css";
+import Header from "@/components/header/Header";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700"],
@@ -22,8 +23,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Skillify",
-  description: "Skillify",
+  title: "Next Blog",
+  description: "Next Blog",
 };
 
 export default async function RootLayout({
@@ -72,13 +73,17 @@ export default async function RootLayout({
             >
               <AntApp>
                 <main>
-                  <Header style={{ backgroundColor: "var(--header-background)" }}>
-                    <h1 style={{ color: "var(--header-foreground)" }}>Hello world!!!</h1>
-                  </Header>
+                  {/* <Header /> */}
+                  <Header />
                   {children}
-                  <Footer style={{ backgroundColor: "var(--footer-background)" }}>
+                  <Footer
+                    style={{ backgroundColor: "var(--footer-background)" }}
+                  >
                     <div className="text-center">
-                      <p className="text-sm" style={{ color: "var(--footer-foreground)" }}>
+                      <p
+                        className="text-sm"
+                        style={{ color: "var(--footer-foreground)" }}
+                      >
                         © 2025 Next Blog. All rights reserved.
                       </p>
                     </div>

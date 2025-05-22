@@ -7,34 +7,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'upload.tanca.io',
-      },
-      {
-        protocol: 'https',
-        hostname: 'api.tanca.io',
-      },
-      {
-        protocol: 'https',
-        hostname: 'p.tanca.vn',
-      },
-      {
-        protocol: 'https',
-        hostname: 'randomuser.me',
-      },
-      {
-        protocol: 'https',
-        hostname: 's3.skillify.asia',
+        hostname: 'images.unsplash.com',
       },
     ],
-  },
-  webpack(config) {
-    // Configure SVGR
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-
-    return config;
   },
 };
 
