@@ -4,11 +4,13 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Inter } from "next/font/google";
 
-import { NextIntlClientProvider } from "next-intl";
-import { getLangCookie } from "@/utils/cookiesServer";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Footer } from "antd/es/layout/layout";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/header/Header";
+
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700"],
@@ -28,16 +30,21 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
+  params,
   children,
 }: Readonly<{
+  params: Promise<{ locale: string }>;
   children: React.ReactNode;
 }>) {
-  const locale = await getLangCookie();
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
       <body className={`${plusJakartaSans.variable} ${inter.className}`}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale}>
           <AntdRegistry>
             <ConfigProvider
               theme={{
@@ -78,9 +85,7 @@ export default async function RootLayout({
                   {children}
                   <Footer>
                     <div className="text-center">
-                      <p
-                        className="text-sm"
-                      >
+                      <p className="text-sm">
                         © 2025 Next Blog. All rights reserved.
                       </p>
                     </div>

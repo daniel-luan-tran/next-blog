@@ -1,3 +1,5 @@
 {
-  "Common": {}
+  "Common": {
+    "hello_world": "Xin chào, Thế giới!"
+  }
 }
